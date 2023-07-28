@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %}
+<!-- content -->
+<div class="container mb-5">
+  
+  {% if item != None and search.count > 0 %}
+  <h1 class="text-center title text-capitalize mt-5 mb-5">Here is your search result for {{item}}</h1>
+  <div class="row">
+    
+    {% for item in search %}
+    <div class="col-12 col-md-6 col-lg-3 tcard">
+      <div class="card">
+        <a href="">  <img src="{{item.pix.url}}" class="card-img-top" style="height: 200px;"></a>
+          <div class="card-body">
+            <h5 class="card-title text-capitalize">{{item.title}}</h5>
+            
+            {% if item.promo_price %}
+            <p class="card-text">₦{{item.promo_price}}</p>
+            <del><p class="card-text">₦{{item.price}}</p></del>
+            {% else %}
+            <p class="card-text">₦{{item.price}}</p>
+            {% endif %}
+              
+            <a href="#" class="btn btn-primary text-capitalize">add to cart</a>
+          </div>
+        </div>
+  </div>
+    {% endfor %}
+     </div>
+    {% else %}
+    <h5>Your search for {{item}} is not found</h5>
+  {% endif %}
+     
+  </div>
+</div>
+<!-- content done -->
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}

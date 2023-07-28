@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %}
+<!-- content -->
+<div class="container mb-5 det">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img src="{{prodet.pix.url}}" class="img-fluid rounded-start" style="height: 50vh;">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h1 class="card-title">{{prodet.title}}</h1>
+         
+         {% if prodet.promo_price %}
+         <p class="card-text">${{prodet.promo_price}}</p>
+         <del> <p class="card-text">${{prodet.price}}</p></del>
+         {% else %}
+         <p class="card-text">${{prodet.price}}</p>
+         {% endif %}
+          
+          <hr>
+          <p>{{prodet.description}}</p>
+          <form action="{% url 'add_to_cart' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="itemid" value="{{prodet.id}}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="btn btn-primary text-capitalize">add to cart</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- content done -->
+
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}

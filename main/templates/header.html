@@ -1,0 +1,115 @@
+<nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="{{info.logo.url}}" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">products</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              category
+            </a>
+            <ul class="dropdown-menu bg-primary">
+              
+              {% for category in category %}
+              <li><a class="dropdown-item" href="{% url 'category' category.id category.catslug %}">{{category.name}}</a></li>
+              {% endfor %}
+                
+              
+              
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">contact</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cart' %}">
+                  <div class="wrapper">
+                      <i class="bi bi-cart4"></i>
+                      <span class="badge">{{itemcount}}</span>
+                  </div>
+              </a>
+  
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                
+               
+               {% if user.customer %}
+               <img src="{{user.customer.pix.url}}" alt="" height="20px"><span>Hi {{user.username}}!</span>
+               {% endif %}
+              </a>
+              <ul class="dropdown-menu bg-primary">
+                <li><a class="dropdown-item" href="{% url 'profile' %}">profile</a></li>
+                <li><a class="dropdown-item" href="{% url 'signout' %}">log out</a></li>
+               
+              {% else %}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">products</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              category
+            </a>
+            <ul class="dropdown-menu bg-primary">
+              
+              {% for category in category %}
+              <li><a class="dropdown-item" href="{% url 'category' category.id category.catslug %}">{{category.name}}</a></li>
+              {% endfor %}
+                
+              
+              
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'signin' %}">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">register</a>
+          </li>
+          
+          {% endif %}
+            
+          
+         
+            </ul>
+          </li>
+        </ul>
+        <form action="{% url 'search' %}" method="POST" class="d-flex" role="search">
+          {% csrf_token %}
+          <input class="form-control me-2" name="item" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn bg-black text-white" type="submit">Search</button>
+        </form>
+        <div class="rash">
+          <i class="bi bi-moon-fill"></i>
+          <!-- <i class="bi bi-sun-fill"></i> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- pop up -->
+  
+  {% for item in messages %}
+  <div class="alert alert-success text-center mb-0 alert-dismissible fade show" role="alert" style="color: green;">
+    <strong>{{item}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+    
+ 
+  <!-- pop up done -->

@@ -1,0 +1,415 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.loader-con{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(201, 225, 225);
+    transition: all .5s ease;
+    position: absolute;
+    z-index: 99999;
+    overflow-y: hidden !important;
+}
+.loader-con .loader{
+    width: 100px;
+    height: 100px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 15px dashed blue;
+    position: absolute;
+    margin: auto;
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* styling header */
+.nav-item a{
+    text-transform: capitalize;
+    font-weight: 500;
+    color: white;
+}
+.nav-link img{
+    border-radius: 100%;
+}
+.wrapper{
+    position: relative;
+}
+.wrapper span{
+    position: absolute;
+    top: -2px;
+    right: -10px;
+    background-color: black;
+    font-size: 8px;
+    border-radius: 50%;
+}
+/* styling header done */
+
+/* styling carousel */
+.carousel-control-prev i{
+    font-size: 50px;
+    color: grey;
+}
+.carousel-control-next i{
+    font-size: 50px;
+    color: grey;
+}
+.carousel-item img{
+    height: 80vh;
+}
+.rash{
+    margin-left: 3%;
+    cursor: pointer;
+    font-size: 130%;
+}
+:root{
+    --bg: white;
+    --icon: black;
+    --text: black;
+    --foot: black;
+    --cat: white;
+}
+.dark{
+    --bg: black;
+    --icon: black;
+    --text: white;
+    --foot: black;
+    --cat: black;
+}
+body{
+    background: var(--bg) !important;
+    color: var(--text) !important;
+    overflow-y: hidden;
+    font-family: 'Belanosima', sans-serif !important;
+}
+/* styling carousel done */
+
+/* styling content */
+.tcard .card{
+    text-align: center;
+    border: 2px solid blue;
+    box-shadow: 0 0 30px black;
+    transition: 1s;
+}
+.tcard img{
+    border-bottom: 2px solid blue;
+}
+.tcard .card:hover{
+    transform: translateY(-20px);
+}
+.catbag{
+    background-color: grey;
+}
+.catbag h1{
+    color: var(--cat) !important;
+}
+.catrow{
+    text-align: center;
+}
+.categ img{
+    border-radius: 100%;
+    width: 350px;
+    padding: 10px;
+    transition: 1s;
+    margin-bottom: 10px;
+}
+.categ img:hover{
+    transform: scale(0.5);
+}
+/* styling content done */
+
+/* styling footer */
+.fbag{
+    background-color: lightblue;
+    text-align: center;
+    padding: 20px 0;
+}
+.fbag h3{
+    text-transform: capitalize;
+    color: var(--foot) !important;
+}
+.fbag a{
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.fbag a:hover{
+    color: blue;
+}
+.fbag img{
+    padding-top: 10%;
+}
+.fcont i{
+    color: black;
+}
+.fcont li{
+    margin-bottom: 1%;
+    color: var(--foot) !important;
+}
+/* styling footer done */
+/* styling banner */
+.banner{
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(../img/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+}
+.pagination a:hover{
+    background-color: blue;
+    color: white;
+}
+/* styling banner done */
+
+/* styling details */
+.det button:hover{
+    color: gold;
+}
+.det .card{
+    border: none;
+}
+.det .row{
+    text-transform: capitalize;
+}
+.det .card-text{
+    font-size: 20px;
+    font-weight: bold;
+}
+/* styling details done */
+
+/* styling contact */
+.cform label{
+    color: black;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.map iframe{
+    width: 600px;
+    height: 450px;
+}
+/* styling contact done */
+
+/* styling register */
+.reg label{
+    color: black;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.reg form{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 2px solid blue;
+    box-shadow: 0 0 30px black;
+    padding: 20px;
+}
+.reg input:focus{
+    border: 2px solid blue;
+    outline: none;
+
+}
+.reg button{
+    width: 100%;
+}
+.reg h1{
+    font-weight: bold;
+}
+.reg p{
+    font-weight: 500;
+    font-size: larger;
+}
+.reg span{
+    color: blue;
+}
+.reg a{
+    text-decoration: none;
+    color: blue;
+}
+.pass{
+    position: relative;
+}
+.see{
+    position: absolute;
+    top: 84%;
+    right: 32%;
+    cursor: pointer;
+}
+.bi-eye-fill{
+    display: none;
+}
+.see.hide .bi-eye-fill{
+    display: block;
+}
+.see.hide .bi-eye-slash-fill{
+    display: none;
+}
+/* styling register done */
+
+/* styling cart */
+.cart table{
+    width: 70%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    text-transform: capitalize;
+    border: 2px solid blue;
+}
+.cart thead{
+    background-color: rgb(201, 225, 225);
+}
+.item td{
+    border: 1px solid blue;
+}
+.item input{
+    width: 20%;
+}
+.item i{
+    color: red;
+}
+.subtot td{
+    font-size: 20px;
+    font-weight: 500;
+}
+/* styling cart done */
+
+/* styling checkout */
+.Checkout label{
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.Checkout input:focus{
+    border: 2px solid blue;
+}
+.Checkout button{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+/* styling checkout done */
+
+/* styling profile */
+.pavat{
+    text-align: center;
+    background-color: rgb(201, 225, 225);
+}
+.pavat img{
+    border-radius: 100%;
+    margin-top: 3%;
+    height: 150px;
+}
+.pavat h5{
+    font-style: italic;
+}
+.pavat a{
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.pavat a:hover{
+    color: blue;
+}
+.pform form{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.pform label{
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.pform button{
+    width: 100%;
+}
+.thank{
+    text-align: center;
+}
+.thank p{
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.thank span{
+    color: blue;
+    font-style: italic;
+}
+.thank img{
+    height: 200px;
+}
+/* styling profile done */
+
+@media (max-width: 467px){
+   .carousel-item img{
+        height: 40vh;
+   }
+
+    .wrapper span{
+        position: absolute;
+        top: -2px;
+        right: 270px;
+        background-color: black;
+        font-size: 8px;
+        border-radius: 50%;
+    }
+    .tcard .card{
+        text-align: center;
+        border: 2px solid blue;
+        box-shadow: 0 0 30px black;
+        transition: 1s;
+        margin-top: 50px;
+    }
+    .categ img{
+        border-radius: 100%;
+        width: 300px;
+        padding: 10px;
+        transition: 1s;
+        margin-bottom: 10px;
+        height: 100%;
+    }
+    .banner{
+        background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(../img/banner.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 25vh;
+    }
+    .map iframe{
+        width: 300px;
+        height: 150px;
+    }
+    .reg form{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .cart table{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+        text-transform: capitalize;
+        border: 1px solid blue;
+    }
+    .pavat img{
+        border-radius: 100%;
+        margin-top: 3%;
+        height: 75px;
+    }
+    .pform form{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 20%;
+        margin-top: 10%;
+    }
+    .thank img{
+        height: 150px;
+    }
+}

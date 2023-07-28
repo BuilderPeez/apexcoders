@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %}
+<!-- content -->
+<div class="container mb-5">
+  <h1 class="text-center title text-capitalize mt-5 mb-5">{{catname.name}}</h1>
+  <div class="row">
+    
+    {% for item in catprod %}
+    <div class="col-12 col-md-6 col-lg-3 tcard">
+      <div class="card">
+        <a href="">  <img src="{{item.pix.url}}" class="card-img-top" style="height: 200px;"></a>
+          <div class="card-body">
+            <h5 class="card-title text-capitalize">{{item.title}}</h5>
+            
+            {% if item.promo_price %}
+            <p class="card-text">₦{{item.promo_price}}</p>
+            <del><p class="card-text">₦{{item.price}}</p></del>
+            {% else %}
+            <p class="card-text">₦{{item.price}}</p>
+            {% endif %}
+              
+            <a href="#" class="btn btn-primary text-capitalize">add to cart</a>
+          </div>
+        </div>
+  </div>
+    {% endfor %}
+      
+      
+      </div>
+  </div>
+</div>
+<div class="pagin">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<!-- content done -->
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}

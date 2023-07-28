@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %}
+{% load static %}
+<!-- content -->
+<div class="container mt-5 mb-5">
+  <h1 class="text-center text-capitalize mt-5 mb-5">my profile</h1>
+  <div class="row">
+    <div class="col-md-4 pavat">
+      <img src="{{userprof.pix.url}}" alt="">
+      <h5>{{userprof.user}}</h5>
+      <hr>
+      <ul class="list-unstyled">
+        <li><a href="{% url 'profile' %}">profile</a></li>
+        <li><a href="{% url 'profile_update' %}">profile update</a></li>
+        <li><a href="{% url 'password_update' %}">password update</a></li>
+      </ul>
+    </div>
+    <div class="col-md-9 thank">
+      <img src="{% static '' %}img/istockphoto-1132817705-612x612.jpg" alt="">
+      <p>dear <span>{{userprof.first_name}}</span> your order has been received and you shall be contacted shortly.
+      Thank you for your patronage.</p>
+     <a href="{% url 'home' %}"> <button class="btn btn-primary">Back Home</button></a>
+    </div>
+  </div>
+  </div>
+ </div>
+<!-- content done -->
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}

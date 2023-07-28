@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %}
+<!-- content -->
+<div class="container mt-5 mb-5">
+  <h1 class="text-center text-capitalize mt-5 mb-5">profile update</h1>
+  <div class="row">
+    <div class="col-md-4 pavat">
+      <img src="{{userprof.pix.url}}" alt="" style="height: 150px;">
+      <h5>{{userprof.user}}</h5>
+      <hr>
+      <ul class="list-unstyled">
+        <li><a href="{% url 'profile' %}">profile</a></li>
+        <li><a href="{% url 'profile_update' %}l">profile update</a></li>
+        <li><a href="{% url 'password_update' %}">password update</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8 pform">
+      <form action="{% url 'profile_update' %}" method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">first name</label>
+          <input type="text" name="first_name" value="{{userprof.first_name}}" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">last name</label>
+          <input type="text" name="last_name" value="{{userprof.last_name}}" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">phone</label>
+          <input type="number" name="phone" value="{{userprof.phone}}" class="form-control" id="exampleFormControlInput1" placeholder="+234">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">address</label>
+          <input type="text" name="address" value="{{userprof.address}}" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">email</label>
+          <input type="email" name="email" value="{{userprof.email}}" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">uplaod picture</label>
+          <input type="file" name="pix" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+ </div>
+<!-- content done -->
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}

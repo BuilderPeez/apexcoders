@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %}
+<!-- content -->
+<div class="container text-capitalize mt-4 mb-5">
+  <div class="row cart">
+    <div class="col-md-6">
+      <h1 class="text-center mb-5">summary</h1>
+      <table class="">
+        <thead>
+          <th>img</th>
+          <th>item</th>
+          <th>price</th>
+          <th>quantity</th>
+          <th>amount</th>
+        </thead>
+        <tbody>
+
+          
+          {% for items in cart %}
+          <tr class="item">
+            <td><img src="{{items.product.pix.url}}" alt="" style="height: 50px;"></td>
+            <td>{{items.product}}</td>
+            <td>${{items.price}}</td>
+            <td>{{items.quantity}}</td>
+            <td>${{items.amount}}</td>
+          </tr>
+          {% endfor %}
+            
+         
+        </tbody>
+        </thead>
+          <tr class="subtot">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>total =</td>
+            <td>${{total}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6 Checkout mt-2">
+      <h1 class="text-capitalize text-center mb-5">delivery information</h1>
+      <form action="{% url 'payment' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">first name</label>
+          <input type="text" name="first_name" class="form-control" value="{{userprof.first_name}}" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">last name</label>
+          <input type="text" name="last_name" class="form-control" value="{{userprof.last_name}}" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">phone</label>
+          <input type="number" name="phone" class="form-control" value="{{userprof.phone}}" id="exampleFormControlInput1" placeholder="+234">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">address</label>
+          <input type="text" name="address" class="form-control" value="{{userprof.address}}" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">email</label>
+          <input type="hidden" name="total" value="{{total}}">
+          <input type="email" name="email" class="form-control" value="{{userprof.email}}" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">pay now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- content done -->
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
